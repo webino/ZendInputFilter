@@ -181,6 +181,29 @@ class Input implements
     }
 
     /**
+     * Unset input validator
+     *
+     * @param string $class
+     * @return $this
+     */
+    public function unsetValidator($class)
+    {
+        $validatorChain = $this->getValidatorChain();
+        $validatorChainNew = new ValidatorChain;
+
+        foreach ($validatorChain->getValidators() as $validator) {
+            if (empty($validator['instance']) || $validator['instance'] instanceof $class) {
+                continue;
+            }
+
+            $validatorChainNew->attach($validator['instance'], $validator['breakChainOnFailure']);
+        }
+
+        $this->setValidatorChain($validatorChainNew);
+        return $this;
+    }
+
+    /**
      * Set the input value.
      *
      * If you want to remove/unset the current value use {@link Input::resetValue()}.
