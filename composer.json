@@ -1,5 +1,5 @@
 {
-    "name": "zendframework/zend-inputfilter",
+    "name": "webino/zend-input-filter",
     "description": "Normalize and validate input sets from the web, APIs, the CLI, and more, including files",
     "license": "BSD-3-Clause",
     "keywords": [
@@ -27,6 +27,9 @@
         "rss": "https://github.com/zendframework/zend-inputfilter/releases.atom",
         "slack": "https://zendframework-slack.herokuapp.com",
         "forum": "https://discourse.zendframework.com/c/questions/expressive"
+    },
+    "replace": {
+        "zendframework/zend-inputfilter": "self.version"
     },
     "require": {
         "php": "^5.6 || ^7.0",
